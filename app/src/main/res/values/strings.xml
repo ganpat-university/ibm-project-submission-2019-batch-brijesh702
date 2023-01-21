@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">NewsAPP</string>
+    <string name="title">Android News App</string>
+    <string name="profilebutton">profbutn</string>
+    <string name="categorybutn">catabutn</string>
+    <string name="homebutn">hbutn</string>
+    <string name="searchbutn">searchbutton</string>
+    <string name="title_activity_bottom_sample">bottom_sample</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

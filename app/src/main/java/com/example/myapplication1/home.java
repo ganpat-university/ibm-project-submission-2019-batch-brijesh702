@@ -13,6 +13,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.myapplication1.databinding.ActivityHomeBinding;
@@ -21,37 +22,34 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class home extends AppCompatActivity {
     ActivityHomeBinding binding;
-    private androidx.appcompat.widget.Toolbar Toolbar;
+  //  private androidx.appcompat.widget.Toolbar Toolbar;
     Button btnLogOut;
     FirebaseAuth mAuth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        //setContentView(R.layout.activity_home);
-        btnLogOut = findViewById(R.id.navigation_logout); //logout top navigation
+        setContentView(R.layout.activity_home);
         mAuth = FirebaseAuth.getInstance();
-
-        Toolbar toolbar=findViewById(R.id.appbar);
-        setSupportActionBar(Toolbar);
+        ImageView profileIcon = (ImageView) findViewById(R.id.profile_icon);
+        profileIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(home.this, MyProfileActivity.class);
+                startActivity(intent);
+            }
+        });
+        /*Toolbar toolbar=findViewById(R.id.appbar);
+        //setSupportActionBar(Toolbar);
         binding=ActivityHomeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot()) ;
-        replaceFragment(new HomeFragment());
 
         binding.bottomNavigationView.setOnItemSelectedListener(item -> {
             switch (item.getItemId()){
-                case R.id.navigation_home:
-                    replaceFragment(new HomeFragment());
-
-                    break;
-                case R.id.navigation_category:
-                    replaceFragment(new CategoryFragment());
-
-                    break;
-                case R.id.navigation_bookmark:
-                    replaceFragment(new BookmarkFragment());
-                   // startActivity(new Intent(home.this,MyProfileActivity.class));
-                    break;
+                case R.id.navigation_profile:
+                    //replaceFragment(new BookmarkFragment());
+                 startActivity(new Intent(home.this,MyProfileActivity.class));
+                  break;
                 case R.id.navigation_logout:
                     mAuth.signOut();
                     startActivity(new Intent(home.this,MainActivity.class));
@@ -59,23 +57,23 @@ public class home extends AppCompatActivity {
                     break;
             }
             return  true;
-        });
+        });*/
 
     }
-    @Override
+ /*   @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.top_nev_menu,menu);
         return true;
-    }
+    }*/
 
 
-    private void replaceFragment(Fragment fragment){
+    /*private void replaceFragment(Fragment fragment){
         FragmentManager fragmentManager=getSupportFragmentManager();
         FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.bottomframelayout,fragment);
         fragmentTransaction.commit();
 
-    }
+    }*/
 
     protected void onStart() {
         super.onStart();

@@ -13,15 +13,25 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.common.net.InternetDomainName;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.auth.User;
 
 public class RegistrationActivity extends AppCompatActivity {
-    TextInputEditText etRegEmail;
-    TextInputEditText etRegPassword;
-    TextView tvLoginHere;
+   private TextInputEditText etRegEmail;
+    private TextInputEditText etRegName;
+    private TextInputEditText etRegPassword;
+    private TextInputEditText etRegAge;
+    private TextInputEditText etRegNumber;
+    private TextView tvLoginHere;
     Button btnRegister;
     FirebaseAuth mAuth;
+    private DatabaseReference mDatabase;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +41,7 @@ public class RegistrationActivity extends AppCompatActivity {
         tvLoginHere = findViewById(R.id.tvLoginHere);
         btnRegister = findViewById(R.id.btnRegister);
         mAuth = FirebaseAuth.getInstance();
+
 
         btnRegister.setOnClickListener(view ->{
             createUser();
@@ -43,11 +54,12 @@ public class RegistrationActivity extends AppCompatActivity {
     private void createUser() {
         String email = etRegEmail.getText().toString();
         String password = etRegPassword.getText().toString();
+        String name = etRegName.getText().toString();
 
         if (TextUtils.isEmpty(email)){
             etRegEmail.setError("Email cannot be empty");
             etRegEmail.requestFocus();
-        }else if (TextUtils.isEmpty(password)){
+        }else if (TextUtils.isEmpty(password)) {
             etRegPassword.setError("Password cannot be empty");
             etRegPassword.requestFocus();
         }else{

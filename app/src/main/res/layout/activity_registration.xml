@@ -7,13 +7,23 @@
     android:padding="24dp"
     tools:context=".RegistrationActivity">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Velocity News"
+        android:textSize="20sp"
+        android:fontFamily="times"
+        android:textStyle="italic"
+        android:gravity="left"
+        android:layout_marginVertical="16dp"/>
+
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="200dp"
         android:layout_height="150dp"
         android:layout_gravity="center"
-        android:layout_marginTop="25dp"
-        android:src="@drawable/newslogo"/>
+        android:layout_marginTop="0dp"
+        android:src="@drawable/logo"/>
 <ScrollView
     android:layout_width="match_parent"
     android:layout_height="match_parent">

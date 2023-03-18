@@ -19,7 +19,6 @@ public class MyProfileActivity extends AppCompatActivity {
     private TextView emailText;
     private TextView nameText;
     private Button logoutButton;
-
     private FirebaseAuth firebaseAuth;
     private FirebaseUser firebaseUser;
     @Override
@@ -29,14 +28,10 @@ public class MyProfileActivity extends AppCompatActivity {
         profileImage = findViewById(R.id.profile_image);
         emailText = findViewById(R.id.email_text);
         nameText= findViewById(R.id.Name_text1);
-        //passwordText = findViewById(R.id.password_text);
         logoutButton = findViewById(R.id.logout_button);
-
         firebaseAuth = firebaseAuth.getInstance();
         firebaseUser = firebaseAuth.getCurrentUser();
 
-        emailText.setText(firebaseUser.getEmail());
-        nameText.setText(firebaseUser.getUid());
       //  passwordText.setText("Password:"+ firebaseUser.getPa());
 
 
@@ -50,5 +45,18 @@ public class MyProfileActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        FirebaseUser user=firebaseAuth.getCurrentUser();
+        if(user != null){
+            emailText.setText(firebaseUser.getEmail());
+            nameText.setText(firebaseUser.getUid());
+        }
+        else {
+            startActivity(new Intent(MyProfileActivity.this,MainActivity.class));
+        }
     }
 }

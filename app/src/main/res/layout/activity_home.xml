@@ -6,9 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".home">
-   <!-- <include
-        layout="@layout/appbar"
-        android:id="@+id/appbar" />-->
 <androidx.appcompat.widget.Toolbar
     android:id="@+id/appbar"
     android:layout_width="match_parent"
@@ -40,238 +37,154 @@
         android:id="@+id/options"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="7dp"
+        android:layout_margin="3dp"
         android:orientation="vertical"
         app:layout_constraintTop_toBottomOf="@+id/appbar">
-
-        <androidx.appcompat.widget.SearchView
-            android:id="@+id/search_bar1"
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginTop="7dp"
-            android:layout_marginBottom="7dp">
-        </androidx.appcompat.widget.SearchView>
-
+            android:layout_height="wrap_content"
+            android:id="@+id/search_card"
+            android:elevation="2dp"
+            android:layout_margin="4dp">
+            <androidx.appcompat.widget.SearchView
+                android:id="@+id/search_view"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:foregroundTint="@color/main_color"
+                app:defaultQueryHint="Search For News...."
+                app:iconifiedByDefault="false">
+            </androidx.appcompat.widget.SearchView>
+        </androidx.cardview.widget.CardView>
         <HorizontalScrollView
             android:id="@+id/linerlayout1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:layout_below="@+id/search_bar1">
+            android:layout_margin="2dp"
+            android:layout_below="@+id/search_card">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
+                android:layout_margin="0dp"
                 android:orientation="horizontal">
-
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/card1"
-                    android:layout_width="120dp"
-                    android:layout_height="80dp"
-                    android:layout_margin="10dp"
-                    app:cardCornerRadius="10dp"
-                    app:cardElevation="1dp">
-
-                    <!-- card view content -->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@color/main_color"
-                        android:orientation="vertical"
-                        android:padding="10dp">
-
-                        <ImageView
-                            android:id="@+id/img1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@drawable/ic_baseline_business_24" />
-
-                        <TextView
-                            android:id="@+id/text1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:text="Busniess"
-                            android:textColor="@color/white" />
-
-                    </LinearLayout>
-
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/card2"
-                    android:layout_width="120dp"
-                    android:layout_height="80dp"
-                    android:layout_margin="10dp"
-                    app:cardCornerRadius="10dp"
-                    app:cardElevation="1dp">
-
-                    <!-- card view content -->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@color/main_color"
-                        android:orientation="vertical"
-                        android:padding="10dp">
-
-                        <ImageView
-                            android:id="@+id/img2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@drawable/ic_baseline_medical_services_24" />
-
-                        <TextView
-                            android:id="@+id/text2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:text="Health"
-                            android:textColor="@color/white" />
-
-                    </LinearLayout>
-
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/card3"
-                    android:layout_width="120dp"
-                    android:layout_height="80dp"
-                    android:layout_margin="10dp"
-                    app:cardCornerRadius="10dp"
-                    app:cardElevation="1dp">
-
-                    <!-- card view content -->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@color/main_color"
-                        android:orientation="vertical"
-                        android:padding="10dp">
-
-                        <ImageView
-                            android:id="@+id/img3"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@drawable/ic_baseline_sports_cricket_24" />
-
-                        <TextView
-                            android:id="@+id/text3"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:text="Sport"
-                            android:textColor="@color/white" />
-
-                    </LinearLayout>
-
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/card4"
-                    android:layout_width="120dp"
-                    android:layout_height="80dp"
-                    android:layout_margin="10dp"
-                    app:cardCornerRadius="10dp"
-                    app:cardElevation="1dp">
-
-                    <!-- card view content -->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@color/main_color"
-                        android:orientation="vertical"
-                        android:padding="10dp">
-
-                        <ImageView
-                            android:id="@+id/img4"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@drawable/ic_baseline_airplane_ticket_24" />
-
-                        <TextView
-                            android:id="@+id/text4"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:text="Travel"
-                            android:textColor="@color/white" />
-
-                    </LinearLayout>
-
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/card5"
-                    android:layout_width="120dp"
-                    android:layout_height="80dp"
-                    android:layout_margin="10dp"
-                    app:cardCornerRadius="10dp"
-                    app:cardElevation="1dp">
-
-                    <!-- card view content -->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@color/main_color"
-                        android:orientation="vertical"
-                        android:padding="10dp">
-
-                        <ImageView
-                            android:id="@+id/img5"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@drawable/ic_baseline_laptop_chromebook_24" />
-
-                        <TextView
-                            android:id="@+id/text5"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:text="Technology"
-                            android:textColor="@color/white" />
-
-                    </LinearLayout>
-
-                </androidx.cardview.widget.CardView>
+                <Button
+                    android:id="@+id/btn10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="top"
+                    android:padding="6dp"
+                    android:layout_margin="6dp"
+                    android:textSize="12sp">
+                </Button>
+                <Button
+                    android:id="@+id/btn11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="world"
+                    android:padding="6dp"
+                    android:layout_margin="6dp"
+                    android:textSize="12sp">
+                </Button>
+                <Button
+                    android:id="@+id/btn1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="business"
+                    android:padding="6dp"
+                    android:layout_margin="6dp"
+                    android:textSize="12sp">
+                </Button>
+                <Button
+                    android:id="@+id/btn2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="entertainment"
+                    android:padding="6dp"
+                    android:layout_margin="6dp"
+                    android:textSize="12sp">
+                </Button>
+                <Button
+                    android:id="@+id/btn3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="environment"
+                    android:padding="6dp"
+                    android:layout_margin="6dp"
+                    android:textSize="12sp">
+                </Button>
+                <Button
+                    android:id="@+id/btn4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="food"
+                    android:padding="6dp"
+                    android:layout_margin="6dp"
+                    android:textSize="12sp">
+                </Button>
+                <Button
+                    android:id="@+id/btn5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="health"
+                    android:padding="6dp"
+                    android:layout_margin="6dp"
+                    android:textSize="12sp">
+                </Button>
+                <Button
+                    android:id="@+id/btn6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="politics"
+                    android:padding="6dp"
+                    android:layout_margin="6dp"
+                    android:textSize="12sp">
+                </Button>
+                <Button
+                    android:id="@+id/btn7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="science"
+                    android:padding="6dp"
+                    android:layout_margin="6dp"
+                    android:textSize="12sp">
+                </Button>
+                <Button
+                    android:id="@+id/btn8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="sports"
+                    android:padding="6dp"
+                    android:layout_margin="6dp"
+                    android:textSize="12sp">
+                </Button>
+                <Button
+                    android:id="@+id/btn9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="technology"
+                    android:padding="6dp"
+                    android:layout_margin="6dp"
+                    android:textSize="12sp">
+                </Button>
             </LinearLayout>
         </HorizontalScrollView>
-
-        <LinearLayout
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/refresh_view"
+    android:layout_below="@+id/linerlayout1">
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
             android:layout_below="@+id/linerlayout1"
-            android:layout_marginTop="10dp">
-            <TextView
-                android:id="@+id/allnews"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="News Feed"
-                android:textColor="@color/main_color"
-                android:textStyle="bold"
-                android:textSize="20dp"
-                android:fontFamily="sans-serif"
-                android:layout_gravity="center_horizontal"
-                android:layout_margin="2dp"/>
-            <androidx.recyclerview.widget.RecyclerView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/recycler_view"
-                android:layout_margin="5dp">
-
-            </androidx.recyclerview.widget.RecyclerView>
-
-        </LinearLayout>
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="70dp"
+            android:orientation="vertical">
+        </androidx.recyclerview.widget.RecyclerView>
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
     </RelativeLayout>
 
-   <!-- <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomNavigationView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/bottom_nav_menu" />-->
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

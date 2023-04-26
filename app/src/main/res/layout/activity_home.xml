@@ -19,7 +19,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Home"
+        android:text="Velocity news"
         android:textColor="@android:color/white"
         android:textSize="20sp"
         android:textStyle="bold"/>
@@ -176,10 +176,10 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_below="@+id/linerlayout1"
             android:layout_marginTop="4dp"
-            android:layout_marginBottom="70dp"
+            android:layout_marginBottom="0dp"
             android:orientation="vertical">
         </androidx.recyclerview.widget.RecyclerView>
 </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

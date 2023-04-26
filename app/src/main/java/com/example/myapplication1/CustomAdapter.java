@@ -2,6 +2,7 @@ package com.example.myapplication1;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.myapplication1.Models.NewsHeadlines;
 import com.squareup.picasso.Picasso;
 
+import java.net.URI;
+import java.net.URL;
 import java.util.List;
 
 public class CustomAdapter extends RecyclerView.Adapter<CustomViewHolder> {
@@ -28,6 +31,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomViewHolder> {
     @NonNull
     @Override
     public CustomViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+
         return new CustomViewHolder(LayoutInflater.from(context).inflate(R.layout.cardview,parent,false));
     }
 
@@ -37,6 +41,13 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomViewHolder> {
         holder.text_content.setText(headlines.get(position).getContent());
         holder.text_source.setText(headlines.get(position).getSource_id());
         holder.text_pub_date.setText(headlines.get(position).getPubDate());
+        String URL_LINK=headlines.get(position).getLink();
+        holder.share_url.setOnClickListener(v -> {
+            Intent share= new Intent(Intent.ACTION_SEND);
+            share.setType("text/plan");
+            share.putExtra(Intent.EXTRA_TEXT,"Tap To See Latest News Happening Around You!!  \n\n"+URL_LINK);
+            context.startActivity(share);
+        });
         if (headlines.get(position).getImage_url() == null){
             holder.img_headline.setImageResource(R.drawable.noimg);
         }
@@ -49,6 +60,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomViewHolder> {
                 listener.OnNewsClicked(headlines.get(position));
             }
         });
+
     }
 
     @Override

@@ -3,6 +3,9 @@ package com.example.myapplication1;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -13,6 +16,8 @@ public class NewsDetailsActivity extends AppCompatActivity {
     NewsHeadlines headlines;
     TextView title,pubDate,description,content;
     ImageView imageView;
+    ImageButton btnBack;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +40,14 @@ public class NewsDetailsActivity extends AppCompatActivity {
         else{
             Picasso.get().load(headlines.getImage_url()).into(imageView);
         }
+        btnBack=findViewById(R.id.btnBACK);
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+
 
     }
 }

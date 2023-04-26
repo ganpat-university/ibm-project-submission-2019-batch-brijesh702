@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -15,9 +16,8 @@ import com.google.firebase.auth.FirebaseUser;
 
 
 public class MyProfileActivity extends AppCompatActivity {
-    private ImageView profileImage;
     private TextView emailText;
-    private TextView nameText;
+    ImageButton btnBack;
     private Button logoutButton;
     private FirebaseAuth firebaseAuth;
     private FirebaseUser firebaseUser;
@@ -25,14 +25,13 @@ public class MyProfileActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_profile);
-        profileImage = findViewById(R.id.profile_image);
+
         emailText = findViewById(R.id.email_text);
-        nameText= findViewById(R.id.Name_text1);
+
         logoutButton = findViewById(R.id.logout_button);
         firebaseAuth = firebaseAuth.getInstance();
         firebaseUser = firebaseAuth.getCurrentUser();
 
-      //  passwordText.setText("Password:"+ firebaseUser.getPa());
 
 
         logoutButton.setOnClickListener(new View.OnClickListener() {
@@ -45,6 +44,14 @@ public class MyProfileActivity extends AppCompatActivity {
             }
         });
 
+        btnBack=findViewById(R.id.btnBACK);
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+
     }
 
     @Override
@@ -53,7 +60,7 @@ public class MyProfileActivity extends AppCompatActivity {
         FirebaseUser user=firebaseAuth.getCurrentUser();
         if(user != null){
             emailText.setText(firebaseUser.getEmail());
-            nameText.setText(firebaseUser.getUid());
+
         }
         else {
             startActivity(new Intent(MyProfileActivity.this,MainActivity.class));
